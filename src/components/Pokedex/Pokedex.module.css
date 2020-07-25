@@ -1,0 +1,50 @@
+.pc-container {
+  display: flex;
+  flex-flow: row wrap;
+}
+.p-container {
+  background-color: #fff;
+  width: 100%;
+  max-width: 50%;
+  margin: 5% 0;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+
+.p-img {
+  flex: 0;
+  padding: 4%;
+  width: 328px;
+  height: 328px;
+  flex: 1 0 auto;
+}
+.p-img img {
+  width: 100%;
+}
+.p-img-shadow {
+  height: 10px;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.8);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+.p-header {
+  display: flex;
+}
+
+.p-title {
+  margin: 0 4%;
+}
+.p-title {
+  text-transform: capitalize;
+}
+.p-footer {
+  margin: 8% 4%;
+}
+.p-type {
+  padding: 4px;
+  color: white;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
+    1px 1px 0 #000;
+}
+.p-types-list {
+  display: flex;
+}
