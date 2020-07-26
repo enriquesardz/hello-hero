@@ -19,6 +19,27 @@ export const CONST_TYPES_COLORS: any = {
   fairy: "#FAADFF",
   unknown: "#1C9C88",
 };
+export const CONST_TYPES_TO_ES: any = {
+  normal: "normal",
+  grass: "sacate",
+  fire: "fuego",
+  water: "agua",
+  fighting: "lucha",
+  flying: "volador",
+  poison: "veneno",
+  ground: "tierra",
+  rock: "roca",
+  bug: "bicho",
+  ghost: "fantasma",
+  electric: "eléctrico",
+  psychic: "psíquico",
+  ice: "hielo",
+  dragon: "dragón",
+  dark: "siniestro",
+  steel: "acero",
+  fairy: "hada",
+  unknown: "???",
+};
 // export function mapTypeToProperties(type) {
 //   switch (type) {
 //   }
@@ -29,6 +50,6 @@ export function mapTypeToColor(type: string) {
 }
 
 export function mapTypeText(type: string) {
-  if (!CONST_TYPES_COLORS[type]) return "???";
-  return type;
+  if (!CONST_TYPES_TO_ES[type]) return CONST_TYPES_TO_ES["unknown"];
+  return CONST_TYPES_TO_ES[type];
 }

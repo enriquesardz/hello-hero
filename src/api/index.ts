@@ -16,7 +16,10 @@ export async function getPokemonByName(pokemon: string): Promise<IPokemon> {
       name: _pokemon.name,
       types: _pokemon.types.map((type: any) => type.type.name),
       image: _pokemon.sprites.front_default,
-      description: pokemonDescription.flavor_text_entries[0].flavor_text,
+      description:
+        pokemonDescription.flavor_text_entries.find(
+          (entry: any) => entry.language.name === "es"
+        ).flavor_text || pokemonDescription.flavor_text_entries[0],
     };
   } catch (error) {
     console.error(error);
