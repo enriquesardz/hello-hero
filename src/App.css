@@ -1,7 +1,7 @@
 body {
   font-family: "Recursive", sans-serif;
   background-color: aquamarine;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25)),
+  background-image: linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.4)),
     url("./assets/backgrounds/grass.png");
 }
 .flex-fill {

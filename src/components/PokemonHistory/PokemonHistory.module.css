@@ -1,0 +1,22 @@
+.ph-container {
+  margin: 64px 0;
+}
+.ph-list {
+  display: flex;
+  justify-content: center;
+}
+.ph-item {
+  text-align: center;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+.ph-item img {
+  height: 128px;
+}
+.ph-item:hover img {
+  transform: scale(1.2);
+}
+.ph-item p {
+  margin: 0;
+}

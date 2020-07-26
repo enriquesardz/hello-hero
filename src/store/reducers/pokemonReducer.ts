@@ -13,8 +13,12 @@ export default function pokemonReducer(
         _history.pop();
       }
       if (_history.length > 0) {
-        if (_history.find((pokemon: any) => pokemon.id === action.pokemon.id))
-          return { ...state };
+        let index = _history.findIndex(
+          (pokemon: any) => pokemon.id === action.pokemon.id
+        );
+        if (index > -1) {
+          _history.splice(index, 1);
+        }
       }
       _history.unshift(action.pokemon);
       return { ...state, history: _history };
