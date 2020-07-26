@@ -1,16 +1,14 @@
 .psb-search-container {
-  width: 40%;
 }
-.psb-search-form {
+.psb-search {
   display: flex;
+  align-items: center;
 }
-.psb-search-form > input {
-  flex: 1;
+.psb-search > input {
   border-top: 4px solid #e74c3c;
   border-bottom: 4px solid black;
-  margin: 0 2% 0 0;
   padding: 0 2%;
-  font-size: 2em;
+  height: 32px;
 }
 .psb-search-btn {
   height: 64px;

@@ -45,9 +45,13 @@
 .p-footer {
   margin: 8% 4%;
 }
+.p-footer h3 {
+  text-transform: uppercase;
+}
 .p-footer p {
-  font-family: "Coda Caption", sans-serif;
-  font-size: 0.8em;
+  font-family: "Teko", sans-serif;
+  font-size: 1.5em;
+  font-weight: 500;
 }
 .p-type {
   padding: 4px;

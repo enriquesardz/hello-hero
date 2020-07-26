@@ -1,0 +1,10 @@
+.navbar {
+  display: flex;
+  align-items: center;
+  padding: 4px;
+  background-color: black;
+  color: white;
+}
+.nb-icn {
+  width: 64px;
+}

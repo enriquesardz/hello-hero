@@ -24,18 +24,17 @@ function PokemonSearchBar({}: IPokemonSearchBarProps): React.ReactElement<
   }
   return (
     <div className={styles["psb-search-container"]}>
-      <form
-        className={styles["psb-search-form"]}
-        onSubmit={handleOnSearchPokemon}
-      >
-        <input
-          type="text"
-          value={pokemonName}
-          onChange={handleOnPokemonNameChange}
-        />
-        <button className={styles["psb-search-btn"]}>
-          <div></div>
-        </button>
+      <form onSubmit={handleOnSearchPokemon}>
+        <div className={styles["psb-search"]}>
+          <input
+            type="text"
+            value={pokemonName}
+            onChange={handleOnPokemonNameChange}
+          />
+          <button className={styles["psb-search-btn"]}>
+            <div></div>
+          </button>
+        </div>
       </form>
     </div>
   );
