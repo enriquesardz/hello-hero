@@ -7,7 +7,9 @@ import { BrowserRouter as Router } from "react-router-dom";
 function App() {
   return (
     <Router>
-      <MainPage />
+      <div className={"poke-app"}>
+        <MainPage />
+      </div>
     </Router>
   );
 }

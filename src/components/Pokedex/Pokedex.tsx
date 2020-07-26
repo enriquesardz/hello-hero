@@ -10,17 +10,6 @@ export interface IPokedex {
 }
 
 function Pokedex({ pokemon }: IPokedex): React.ReactElement<IPokedex> {
-  const cardBorders = {
-    borderLeft: `1px solid black`,
-    borderTop: `1px solid black`,
-    borderRight: `1px solid black`,
-    borderBottom: `1px solid black`,
-  };
-
-  // useEffect(() => {
-  //   pokemon.types.push("asdf");
-  // }, [pokemon]);
-
   function mapBorderColorsStyle() {
     if (pokemon.types.length > 1) {
       return {

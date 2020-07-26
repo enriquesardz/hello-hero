@@ -13,11 +13,12 @@ function MainPage({}: IMainPageProps): React.ReactElement<IMainPageProps> {
   return (
     <>
       <Navbar />
-      <Switch>
-        <Route path="/" exact component={PokemonListPage} />
-        <Route path="/pokemon/:pokemonName" component={PokemonDetailPage} />
-      </Switch>
-      <div style={{ height: "100%" }}></div>
+      <div className={"flex-fill flex-container"}>
+        <Switch>
+          <Route path="/" exact component={PokemonListPage} />
+          <Route path="/pokemon/:pokemonName" component={PokemonDetailPage} />
+        </Switch>
+      </div>
       <Footer />
     </>
   );

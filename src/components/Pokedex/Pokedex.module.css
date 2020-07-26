@@ -1,6 +1,8 @@
 .pc-container {
   display: flex;
   flex-flow: row wrap;
+  max-width: 1300px;
+  width: 100%;
 }
 .p-container {
   background-color: #fff;
@@ -14,10 +16,7 @@
 }
 
 .p-img {
-  flex: 0;
   padding: 4%;
-  width: 328px;
-  height: 328px;
   flex: 1 0 auto;
 }
 .p-img img {

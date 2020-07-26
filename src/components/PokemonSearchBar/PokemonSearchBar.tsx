@@ -11,6 +11,7 @@ function PokemonSearchBar({}: IPokemonSearchBarProps): React.ReactElement<
 > {
   const history = useHistory();
   const [pokemonName, setPokemonName] = useState("");
+  const [searchShowing, setSearchShowing] = useState(false);
 
   function handleOnSearchPokemon(event: any) {
     event.preventDefault();
@@ -25,12 +26,24 @@ function PokemonSearchBar({}: IPokemonSearchBarProps): React.ReactElement<
   return (
     <div className={styles["psb-search-container"]}>
       <form onSubmit={handleOnSearchPokemon}>
-        <div className={styles["psb-search"]}>
-          <input
-            type="text"
-            value={pokemonName}
-            onChange={handleOnPokemonNameChange}
-          />
+        <div
+          className={styles["psb-search"]}
+          onMouseOver={() => {
+            setSearchShowing(true);
+          }}
+          onMouseLeave={() => {
+            setSearchShowing(false);
+          }}
+        >
+          {searchShowing || pokemonName ? (
+            <input
+              type="text"
+              value={pokemonName}
+              onChange={handleOnPokemonNameChange}
+            />
+          ) : (
+            <p>Buscar</p>
+          )}
           <button className={styles["psb-search-btn"]}>
             <div></div>
           </button>

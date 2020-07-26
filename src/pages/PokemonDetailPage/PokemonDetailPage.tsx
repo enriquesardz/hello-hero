@@ -41,7 +41,9 @@ function PokemonDetailPage(): React.ReactElement<IPokemonDetailPageProps> {
 
   return (
     <div className={styles["mp-container"]}>
-      {pokemon && !notFound ? <Pokedex pokemon={pokemon} /> : null}
+      {pokemon && !notFound ? (
+        <Pokedex pokemon={pokemon} key={pokemon.id} />
+      ) : null}
       {notFound ? <EmptyStateNoPokemon /> : null}
       <LoadingState isLoading={isLoading} />
     </div>

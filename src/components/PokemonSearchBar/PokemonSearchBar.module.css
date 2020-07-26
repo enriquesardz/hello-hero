@@ -8,11 +8,13 @@
   border-top: 4px solid #e74c3c;
   border-bottom: 4px solid black;
   padding: 0 2%;
-  height: 32px;
+  height: 40px;
+  font-size: 1.1em;
 }
 .psb-search-btn {
   height: 64px;
   width: 64px;
+  margin: 0 0 0 8px;
   border-radius: 50%;
   border: 5px solid black;
   cursor: pointer;

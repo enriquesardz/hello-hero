@@ -7,3 +7,26 @@ body {
 .flex-fill {
   flex: 1;
 }
+.flex-container {
+  display: flex;
+  flex-flow: column nowrap;
+}
+.flex-container > div {
+  flex: 1;
+}
+.poke-app {
+  min-height: 100vh;
+  display: flex;
+  flex-flow: column;
+}
+a.nostyle:link {
+  text-decoration: inherit;
+  color: inherit;
+  cursor: pointer;
+}
+
+a.nostyle:visited {
+  text-decoration: inherit;
+  color: inherit;
+  cursor: pointer;
+}

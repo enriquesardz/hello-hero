@@ -18,9 +18,11 @@ function Navbar(): React.ReactElement<INavbarProps> {
         />
       </Link>
       <div className={"flex-fill"}></div>
-      <h1>POKEMON</h1>
+      <Link className={"nostyle"} to="/">
+        <h1>POKEMON</h1>
+      </Link>
       <div className={"flex-fill"}></div>
-      <PokemonSearchBar /> 
+      <PokemonSearchBar />
     </nav>
   );
 }
