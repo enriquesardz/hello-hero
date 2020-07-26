@@ -1,0 +1,11 @@
+.es-container {
+  display: flex;
+  margin: 4% 2%;
+  background-color: #fff;
+  padding: 2% 2% 2% 0;
+  border-radius: 5px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+.es-icn {
+  max-width: 200px;
+}

@@ -4,10 +4,11 @@ import { getPokemonByName } from "api";
 // Components
 import Pokedex from "components/Pokedex/Pokedex";
 import LoadingState from "components/LoadingState/LoadingState";
+import EmptyStateNoPokemon from "components/EmptyStateNoPokemon/EmptyStateNoPokemon";
 // Styles
 import styles from "./MainPage.module.css";
 // Interfaces
-import IPokemon from "../../interfaces/IPokemon";
+import IPokemon from "interfaces/IPokemon";
 
 export interface IMainPage {}
 
@@ -61,7 +62,7 @@ function MainPage(): React.ReactElement<IMainPage> {
         </form>
       </div>
       {pokemon && !notFound ? <Pokedex pokemon={pokemon} /> : null}
-      {notFound ? <div>Not found</div> : null}
+      {notFound ? <EmptyStateNoPokemon /> : null}
       <LoadingState isLoading={isLoading} />
     </div>
   );
