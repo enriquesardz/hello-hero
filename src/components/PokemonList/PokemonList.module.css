@@ -8,6 +8,7 @@
   width: 200px;
   cursor: pointer;
   transition: transform 0.2s;
+  margin: auto;
 }
 .pl-item img {
   width: 100%;
@@ -22,4 +23,13 @@
 .pl-observer {
   width: 10px;
   height: 10px;
+}
+.pl-loading-container {
+  display: flex;
+  flex-flow: row wrap;
+  width: 100%;
+}
+
+.pl-loading {
+  margin: 16px auto;
 }

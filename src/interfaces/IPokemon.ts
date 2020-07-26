@@ -4,4 +4,7 @@ export default interface IPokemon {
   types: string[];
   description: string;
   image: string;
+  imageShiny: string;
+  imageFemale: string;
+  imageFemaleShiny: string;
 }

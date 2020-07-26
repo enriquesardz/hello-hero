@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useState } from "react";
 // Styles
 import styles from "./Pokedex.module.css";
 // Interfaces
@@ -10,6 +10,9 @@ export interface IPokedex {
 }
 
 function Pokedex({ pokemon }: IPokedex): React.ReactElement<IPokedex> {
+  const [showShiny, setShowShiny] = useState(false);
+  const [currentGender, setCurrentGender] = useState("m");
+
   function mapBorderColorsStyle() {
     if (pokemon.types.length > 1) {
       return {
@@ -28,18 +31,79 @@ function Pokedex({ pokemon }: IPokedex): React.ReactElement<IPokedex> {
     }
   }
 
+  function mapPokemonImage() {
+    if (currentGender === "m") {
+      return showShiny ? pokemon.imageShiny : pokemon.image;
+    }
+    if (currentGender === "f") {
+      return showShiny ? pokemon.imageFemaleShiny : pokemon.imageFemale;
+    }
+  }
+
   return (
     <div className={styles["pc-container"]}>
       <div className={styles["p-img"]}>
         <div>
-          <img src={pokemon.image} alt={pokemon.name}></img>
+          {!showShiny ? (
+            <img
+              src={mapPokemonImage()}
+              alt={pokemon.name}
+              onMouseEnter={() => {
+                setShowShiny(true);
+              }}
+            ></img>
+          ) : (
+            <img
+              src={mapPokemonImage()}
+              alt={pokemon.name}
+              onMouseLeave={() => {
+                setShowShiny(false);
+              }}
+            ></img>
+          )}
         </div>
       </div>
 
       <div className={styles["p-container"]} style={mapBorderColorsStyle()}>
         <div className={styles["p-header"]}>
           <div className={styles["p-title"]}>
-            <h2>{pokemon.name}</h2>
+            <div className={styles["p-theader"]}>
+              <h2>{pokemon.name}</h2>
+              <div className={styles["p-gender"]}>
+                {pokemon.image ? (
+                  <img
+                    className={`${styles["p-gender-m"]} ${
+                      currentGender === "m" ? "" : styles["p-disabled"]
+                    }`}
+                    src={require("assets/icons/male.svg")}
+                    onClick={() => {
+                      setCurrentGender("m");
+                    }}
+                    alt="Male"
+                  />
+                ) : null}
+                {pokemon.imageFemale ? (
+                  <img
+                    className={`${styles["p-gender-f"]} ${
+                      currentGender === "f" ? "" : styles["p-disabled"]
+                    }`}
+                    src={require("assets/icons/female.svg")}
+                    onClick={() => {
+                      setCurrentGender("f");
+                    }}
+                    alt="Female"
+                  />
+                ) : null}
+              </div>
+              <div className={"flex-fill"} />
+              <div className={styles["p-num-badge"]}>
+                <img
+                  src={require("assets/icons/pokeball.svg")}
+                  alt="pokeball"
+                />
+                <span>{pokemon.id}</span>
+              </div>
+            </div>
             <div className={styles["p-types-list"]}>
               {pokemon.types.map((type, index) => (
                 <>

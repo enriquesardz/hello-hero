@@ -4,12 +4,13 @@ import Navbar from "components/Navbar/Navbar";
 import Footer from "components/Footer/Footer";
 import PokemonListPage from "pages/PokemonListPage/PokemonListPage";
 import PokemonDetailPage from "pages/PokemonDetailPage/PokemonDetailPage";
+import NotFound from "pages/NotFound/NotFound";
 // Router
-import { Switch, Route } from "react-router-dom";
+import { Switch, Route, Redirect } from "react-router-dom";
 
 export interface IMainPageProps {}
 
-function MainPage({}: IMainPageProps): React.ReactElement<IMainPageProps> {
+function MainPage(): React.ReactElement<IMainPageProps> {
   return (
     <>
       <Navbar />
@@ -17,6 +18,8 @@ function MainPage({}: IMainPageProps): React.ReactElement<IMainPageProps> {
         <Switch>
           <Route path="/" exact component={PokemonListPage} />
           <Route path="/pokemon/:pokemonName" component={PokemonDetailPage} />
+          <Route path="/404" component={NotFound} />
+          <Redirect to="/404" />
         </Switch>
       </div>
       <Footer />

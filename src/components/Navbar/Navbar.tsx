@@ -1,13 +1,17 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 // Router
 import { Link } from "react-router-dom";
 // Styles
 import styles from "./Navbar.module.css";
 import PokemonSearchBar from "components/PokemonSearchBar/PokemonSearchBar";
+// Hooks
+import { useWindowDimensions } from "hooks/index";
 
 export interface INavbarProps {}
 
 function Navbar(): React.ReactElement<INavbarProps> {
+  const [isSearchExpanding, setIsSearchExpanding] = useState(false);
+  const { width } = useWindowDimensions();
   return (
     <nav className={styles["navbar"]}>
       <Link to="/">
@@ -18,11 +22,17 @@ function Navbar(): React.ReactElement<INavbarProps> {
         />
       </Link>
       <div className={"flex-fill"}></div>
-      <Link className={"nostyle"} to="/">
-        <h1>POKEMON</h1>
-      </Link>
+      {isSearchExpanding && width < 500 ? null : (
+        <Link className={"nostyle"} to="/">
+          <h1>POKEMON</h1>
+        </Link>
+      )}
       <div className={"flex-fill"}></div>
-      <PokemonSearchBar />
+      <PokemonSearchBar
+        onExpand={(isExpanding) => {
+          setIsSearchExpanding(isExpanding);
+        }}
+      />
     </nav>
   );
 }

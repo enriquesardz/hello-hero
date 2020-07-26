@@ -10,7 +10,7 @@ import IPokemon from "interfaces/IPokemon";
 
 export interface IPokemonListPage {}
 
-function PokemonListPage({}): React.ReactElement<IPokemonListPage> {
+function PokemonListPage(): React.ReactElement<IPokemonListPage> {
   const history = useHistory();
   const [pokemons, setPokemons] = useState<IPokemon[]>([]);
   const [isLoading, setIsLoading] = useState(false);

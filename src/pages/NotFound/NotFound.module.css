@@ -1,0 +1,9 @@
+.nf-container {
+  max-width: 664px;
+  margin: auto;
+  width: 100%;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
+}

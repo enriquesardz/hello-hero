@@ -1,8 +1,10 @@
 .ph-container {
   margin: 64px 0;
+  text-align: center;
 }
 .ph-list {
   display: flex;
+  flex-flow: row wrap;
   justify-content: center;
 }
 .ph-item {

@@ -3,6 +3,7 @@ import React, { useEffect, useRef } from "react";
 import IPokemon from "interfaces/IPokemon";
 // Styles
 import styles from "./PokemonList.module.css";
+import LoadingRing from "components/LoadingRing/LoadingRing";
 
 export interface IPokemonList {
   pokemons: IPokemon[];
@@ -55,10 +56,12 @@ function PokemonList({
             ))
           : null}
       </div>
-      {isLoading ? <div>Loading...</div> : null}
-      {isLoading ? null : (
-        <div className={styles["pl-observer"]} ref={ref}></div>
-      )}
+      <div className={styles["pl-loading-container"]}>
+        {isLoading ? <LoadingRing className={styles["pl-loading"]} /> : null}
+        {isLoading ? null : (
+          <div className={styles["pl-observer"]} ref={ref}></div>
+        )}
+      </div>
     </>
   );
 }

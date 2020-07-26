@@ -4,11 +4,13 @@ import { useHistory } from "react-router-dom";
 // Styles
 import styles from "./PokemonSearchBar.module.css";
 
-export interface IPokemonSearchBarProps {}
+export interface IPokemonSearchBarProps {
+  onExpand(isExpanding: boolean): void;
+}
 
-function PokemonSearchBar({}: IPokemonSearchBarProps): React.ReactElement<
-  IPokemonSearchBarProps
-> {
+function PokemonSearchBar({
+  onExpand,
+}: IPokemonSearchBarProps): React.ReactElement<IPokemonSearchBarProps> {
   const history = useHistory();
   const [pokemonName, setPokemonName] = useState("");
   const [searchShowing, setSearchShowing] = useState(false);
@@ -30,9 +32,11 @@ function PokemonSearchBar({}: IPokemonSearchBarProps): React.ReactElement<
           className={styles["psb-search"]}
           onMouseOver={() => {
             setSearchShowing(true);
+            onExpand(true);
           }}
           onMouseLeave={() => {
             setSearchShowing(false);
+            onExpand(false);
           }}
         >
           {searchShowing || pokemonName ? (
