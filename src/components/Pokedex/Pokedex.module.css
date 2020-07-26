@@ -21,7 +21,9 @@
   flex: 1 0 auto;
 }
 .p-img img {
+  position: relative;
   width: 100%;
+  animation: jump 0.55s ease-in-out;
 }
 .p-img-shadow {
   height: 10px;
@@ -35,12 +37,17 @@
 
 .p-title {
   margin: 0 4%;
-}
-.p-title {
   text-transform: capitalize;
+}
+.p-title h2 {
+  text-transform: uppercase;
 }
 .p-footer {
   margin: 8% 4%;
+}
+.p-footer p {
+  font-family: "Coda Caption", sans-serif;
+  font-size: 0.8em;
 }
 .p-type {
   padding: 4px;
@@ -50,4 +57,21 @@
 }
 .p-types-list {
   display: flex;
+}
+@keyframes jump {
+  0% {
+    top: 0;
+  }
+  40% {
+    top: -65px;
+  }
+  60% {
+    top: 0;
+  }
+  80% {
+    top: -30px;
+  }
+  100% {
+    top: 0;
+  }
 }

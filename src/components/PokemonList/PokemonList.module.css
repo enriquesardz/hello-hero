@@ -1,0 +1,25 @@
+.pl-container {
+  display: flex;
+  flex-flow: row wrap;
+  max-width: 1200px;
+  margin: auto;
+}
+.pl-item {
+  width: 200px;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+.pl-item img {
+  width: 100%;
+}
+.pl-item h2 {
+  text-transform: capitalize;
+  text-align: center;
+}
+.pl-item:hover img {
+  transform: scale(1.2);
+}
+.pl-observer {
+  width: 10px;
+  height: 10px;
+}

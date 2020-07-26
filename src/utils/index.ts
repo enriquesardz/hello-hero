@@ -17,11 +17,18 @@ export const CONST_TYPES_COLORS: any = {
   dark: "#8F6956",
   steel: "#C4C2DB",
   fairy: "#FAADFF",
+  unknown: "#1C9C88",
 };
 // export function mapTypeToProperties(type) {
 //   switch (type) {
 //   }
 // }
 export function mapTypeToColor(type: string) {
+  if (!CONST_TYPES_COLORS[type]) return CONST_TYPES_COLORS["unknown"];
   return CONST_TYPES_COLORS[type];
+}
+
+export function mapTypeText(type: string) {
+  if (!CONST_TYPES_COLORS[type]) return "???";
+  return type;
 }
