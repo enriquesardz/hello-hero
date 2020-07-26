@@ -7,14 +7,21 @@ import LoadingState from "components/LoadingState/LoadingState";
 import EmptyStateNoPokemon from "components/EmptyStateNoPokemon/EmptyStateNoPokemon";
 // Router
 import { useParams } from "react-router-dom";
+// Redux
+import { connect } from "react-redux";
+import { handleAddPokemonToHistory } from "store/actions/pokemonActions";
 // Styles
 import styles from "./PokemonDetailPage.module.css";
 // Interfaces
 import IPokemon from "interfaces/IPokemon";
 
-export interface IPokemonDetailPageProps {}
+export interface IPokemonDetailPageProps {
+  handleAddPokemonToHistory(pokemon: IPokemon): void;
+}
 
-function PokemonDetailPage(): React.ReactElement<IPokemonDetailPageProps> {
+function PokemonDetailPage({
+  handleAddPokemonToHistory: onAddPokemonToHistory,
+}: IPokemonDetailPageProps): React.ReactElement<IPokemonDetailPageProps> {
   const [pokemon, setPokemon] = useState<IPokemon>();
   const [notFound, setNotFound] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
@@ -30,8 +37,10 @@ function PokemonDetailPage(): React.ReactElement<IPokemonDetailPageProps> {
       try {
         let _pokemon = await getPokemonByName(pokemonName);
         setPokemon(_pokemon);
+        onAddPokemonToHistory(_pokemon);
         setNotFound(false);
       } catch (error) {
+        console.log(error);
         setNotFound(true);
       } finally {
         setIsLoading(false);
@@ -50,4 +59,14 @@ function PokemonDetailPage(): React.ReactElement<IPokemonDetailPageProps> {
   );
 }
 
-export default PokemonDetailPage;
+function mapStateToProps({ pokemon }: any) {
+  return {
+    pokemonHistory: pokemon.history,
+  };
+}
+
+const mapDispatchToProps = {
+  handleAddPokemonToHistory,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(PokemonDetailPage);

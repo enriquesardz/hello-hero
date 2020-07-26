@@ -40,6 +40,8 @@ export const CONST_TYPES_TO_ES: any = {
   fairy: "hada",
   unknown: "???",
 };
+
+export const CONST_MAX_HISTORY_AMOUNT: number = 8;
 // export function mapTypeToProperties(type) {
 //   switch (type) {
 //   }
