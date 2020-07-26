@@ -1,0 +1,31 @@
+.psb-search-container {
+  width: 40%;
+}
+.psb-search-form {
+  display: flex;
+}
+.psb-search-form > input {
+  flex: 1;
+  border-top: 4px solid #e74c3c;
+  border-bottom: 4px solid black;
+  margin: 0 2% 0 0;
+  padding: 0 2%;
+  font-size: 2em;
+}
+.psb-search-btn {
+  height: 64px;
+  width: 64px;
+  border-radius: 50%;
+  border: 5px solid black;
+  cursor: pointer;
+}
+.psb-search-btn > div {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  margin: auto;
+  background-color: #7f8c8d;
+}
+.psb-search-btn > div:hover {
+  background-color: #e74c3c;
+}

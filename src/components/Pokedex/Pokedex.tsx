@@ -15,7 +15,7 @@ function Pokedex({ pokemon }: IPokedex): React.ReactElement<IPokedex> {
       <div className={styles["p-img"]}>
         <div>
           <img src={pokemon.image} alt={pokemon.name}></img>
-          <div className={styles["p-img-shadow"]}></div>
+          {/* <div className={styles["p-img-shadow"]}></div> */}
         </div>
       </div>
 
@@ -45,6 +45,7 @@ function Pokedex({ pokemon }: IPokedex): React.ReactElement<IPokedex> {
             </div>
           </div>
         </div>
+        <div className={"flex-fill"}></div>
         <div className={styles["p-footer"]}>
           <h3>Description</h3>
           <p>{pokemon.description}</p>
