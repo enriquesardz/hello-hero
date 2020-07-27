@@ -83,13 +83,15 @@ function PokemonDetailPage({
       {!isLoading ? (
         <>
           {pokemon && !notFound ? (
-            <Pokedex pokemon={pokemon} key={pokemon.id} />
+            <>
+              <Pokedex pokemon={pokemon} key={pokemon.id} />
+              <PokemonStats
+                stats={pokemon && pokemon.stats}
+                borderColors={mapBorderColorsStyle()}
+              />
+            </>
           ) : null}
           {notFound ? <EmptyStateNoPokemon /> : null}
-          <PokemonStats
-            stats={pokemon && pokemon.stats}
-            borderColors={mapBorderColorsStyle()}
-          />
           <PokemonHistory
             pokemonHistory={pokemonHistory}
             onClick={handlePokemonClick}
