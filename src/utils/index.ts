@@ -41,6 +41,16 @@ export const CONST_TYPES_TO_ES: any = {
   unknown: "???",
 };
 
+export const CONST_STATS_TYPES: any = {
+  hp: "Vida",
+  attack: "Ataque",
+  defense: "Defensa",
+  "special-attack": "Ataque especial",
+  "special-defense": "Defensa especial",
+  speed: "Velocidad",
+  unknown: "???",
+};
+
 export const CONST_MAX_HISTORY_AMOUNT: number = 8;
 // export function mapTypeToProperties(type) {
 //   switch (type) {
@@ -54,4 +64,9 @@ export function mapTypeToColor(type: string) {
 export function mapTypeText(type: string) {
   if (!CONST_TYPES_TO_ES[type]) return CONST_TYPES_TO_ES["unknown"];
   return CONST_TYPES_TO_ES[type];
+}
+
+export function mapStatTypeToText(statType: string) {
+  if (!CONST_STATS_TYPES[statType]) return CONST_STATS_TYPES["unknown"];
+  return CONST_STATS_TYPES[statType];
 }

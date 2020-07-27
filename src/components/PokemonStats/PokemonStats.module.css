@@ -1,0 +1,13 @@
+.ps-container {
+  display: flex;
+  flex-flow: row wrap;
+  justify-items: space-around;
+  width: 100%;
+  padding: 16px;
+  max-width: 1300px;
+  background-color: #fff;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+.ps-item {
+  margin: 0 auto;
+}

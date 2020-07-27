@@ -7,4 +7,11 @@ export default interface IPokemon {
   imageShiny: string;
   imageFemale: string;
   imageFemaleShiny: string;
+  stats:
+    | {
+        type: string;
+        base: number;
+        effot: number;
+      }
+    | any;
 }

@@ -6,6 +6,7 @@ import Pokedex from "components/Pokedex/Pokedex";
 import LoadingState from "components/LoadingState/LoadingState";
 import EmptyStateNoPokemon from "components/EmptyStateNoPokemon/EmptyStateNoPokemon";
 import PokemonHistory from "components/PokemonHistory/PokemonHistory";
+import PokemonStats from "components/PokemonStats/PokemonStats";
 // Router
 import { useParams, useHistory } from "react-router-dom";
 // Redux
@@ -15,6 +16,8 @@ import { handleAddPokemonToHistory } from "store/actions/pokemonActions";
 import styles from "./PokemonDetailPage.module.css";
 // Interfaces
 import IPokemon from "interfaces/IPokemon";
+// Utils
+import { mapTypeToColor } from "utils";
 
 export interface IPokemonDetailPageProps {
   pokemonHistory: IPokemon[];
@@ -44,12 +47,31 @@ function PokemonDetailPage({
         onAddPokemonToHistory(_pokemon);
         setNotFound(false);
       } catch (error) {
-        console.log(error);
+        console.error(error);
         setNotFound(true);
       } finally {
         setIsLoading(false);
       }
     }, 2000);
+  }
+
+  function mapBorderColorsStyle() {
+    if (!pokemon) return;
+    if (pokemon.types.length > 1) {
+      return {
+        borderLeft: `4px solid ${mapTypeToColor(pokemon.types[0])}`,
+        borderTop: `2px solid ${mapTypeToColor(pokemon.types[0])}`,
+        borderRight: `2px solid ${mapTypeToColor(pokemon.types[1])}`,
+        borderBottom: `4px solid ${mapTypeToColor(pokemon.types[1])}`,
+      };
+    } else {
+      return {
+        borderLeft: `4px solid ${mapTypeToColor(pokemon.types[0])}`,
+        borderTop: `2px solid ${mapTypeToColor(pokemon.types[0])}`,
+        borderRight: `2px solid ${mapTypeToColor(pokemon.types[0])}`,
+        borderBottom: `4px solid ${mapTypeToColor(pokemon.types[0])}`,
+      };
+    }
   }
 
   function handlePokemonClick(historyPokemonName: string) {
@@ -64,7 +86,10 @@ function PokemonDetailPage({
             <Pokedex pokemon={pokemon} key={pokemon.id} />
           ) : null}
           {notFound ? <EmptyStateNoPokemon /> : null}
-
+          <PokemonStats
+            stats={pokemon && pokemon.stats}
+            borderColors={mapBorderColorsStyle()}
+          />
           <PokemonHistory
             pokemonHistory={pokemonHistory}
             onClick={handlePokemonClick}

@@ -19,6 +19,14 @@ export async function getPokemonByName(pokemon: string): Promise<IPokemon> {
       imageShiny: _pokemon.sprites.front_shiny,
       imageFemale: _pokemon.sprites.front_female || "",
       imageFemaleShiny: _pokemon.sprites.front_shiny_female || "",
+      stats: _pokemon.stats.map((stat: any, index: number) => {
+        return {
+          id: index,
+          type: stat.stat.name,
+          base: stat.base_stat,
+          effort: stat.effort,
+        };
+      }),
       description:
         pokemonDescription.flavor_text_entries.find(
           (entry: any) => entry.language.name === "es"
@@ -48,6 +56,7 @@ export async function getPokemonByPage(offset: number): Promise<IPokemon[]> {
         imageFemale: "",
         imageFemaleShiny: "",
         types: [],
+        stats: [] as IPokemon[],
         description: "",
       });
     }
